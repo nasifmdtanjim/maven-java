@@ -1,0 +1,82 @@
+{
+  "adapters": {
+    "java-debug-server": {
+      "name": "vscode-java",
+      "port": "${AdapterPort}"
+    }
+  },
+  "configurations": {
+    // single java file
+    // "Java Launch": {
+    //   // "default": true,
+    //   "adapter": "java-debug-server",
+    //   "configuration": {
+    //     "request": "launch",
+    //     "mainClass": "Hello",
+    //     "sourcePaths": [ "${workspaceRoot}" ],
+    //     "classPaths": [ "${workspaceRoot}" ],
+    //     "args": "",
+    //     "stopOnEntry": true,
+    //     "console": "integratedTerminal",
+    //     "stepFilters": {
+    //       "skipClasses": [ "$$JDK" ]
+    //     }
+    //   },
+    //   "breakpoints": {
+    //     "exception": {
+    //       "caught": "N",
+    //       "uncaught": "N"
+    //     }
+    //   }
+    // },
+
+    // maven project
+    "Java Launch": {
+      "default": true,
+      "adapter": "java-debug-server",
+      "configuration": {
+        "request": "launch",
+        //"mainClass": "org.example.io.CopyLines",
+        "mainClass": "org.example.App",
+        "sourcePaths": [
+            "${workspaceRoot}/src/main/java",
+            "${workspaceRoot}/../maven-java-submodule/main/java"
+        ],
+        "classPaths": [
+            "${workspaceRoot}/target/classes",
+            "${workspaceRoot}/../maven-java-submodule/target/classes"
+        ],
+        "args": "",
+        "stopOnEntry": true,
+        "console": "integratedTerminal",
+        "stepFilters": {
+          "skipClasses": [ "$$JDK" ]
+        }
+      },
+      "breakpoints": {
+        "exception": {
+          "caught": "N",
+          "uncaught": "N"
+        }
+      }
+    },
+
+    // java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=y Hello
+    "Java Attach": {
+      // "default": false,
+      "adapter": "java-debug-server",
+      "configuration": {
+        "request": "attach",
+        "host": "127.0.0.1",
+        "port": "5005"
+      },
+      "breakpoints": {
+        "exception": {
+          "caught": "N",
+          "uncaught": "N"
+        }
+      }
+    }
+  }
+}
+

@@ -37,7 +37,7 @@
       "configuration": {
         "request": "launch",
         //"mainClass": "org.example.io.CopyLines",
-        "mainClass": "org.example.App",
+        "mainClass": "org.example.${fileBasenameNoExtension}",
         "sourcePaths": [
             "${workspaceRoot}/src/main/java",
             "${workspaceRoot}/../maven-java-submodule/main/java"

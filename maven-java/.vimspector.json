@@ -36,7 +36,6 @@
       "adapter": "java-debug-server",
       "configuration": {
         "request": "launch",
-        //"mainClass": "org.example.io.CopyLines",
         "mainClass": "org.example.${fileBasenameNoExtension}",
         "sourcePaths": [
             "${workspaceRoot}/src/main/java",
@@ -44,7 +43,8 @@
         ],
         "classPaths": [
             "${workspaceRoot}/target/classes",
-            "${workspaceRoot}/../maven-java-submodule/target/classes"
+            "${workspaceRoot}/../maven-java-submodule/target/classes",
+            "/Users/nasif/.m2/repository/com/google/code/gson/gson/2.9.1/gson-2.9.1.jar"
         ],
         "args": "",
         "stopOnEntry": true,

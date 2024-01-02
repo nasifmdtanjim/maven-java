@@ -5,3 +5,10 @@ https://www.mathsisfun.com/algebra/binomial-theorem.html
 https://www.geeksforgeeks.org/bernoulli-trials-binomial-distribution/
 
 https://byjus.com/maths/bernoulli-trials-binomial-distribution/
+
+https://programming.guide/hash-tables.html]
+
+Complexity of "Open Addressing"
+https://courses.csail.mit.edu/6.006/fall11/lectures/lecture10.pdf
+
+https://carmencincotti.com/2022-10-10/linear-probing-open-addressing-hash-tables/

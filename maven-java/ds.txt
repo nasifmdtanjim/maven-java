@@ -10,5 +10,6 @@ https://programming.guide/hash-tables.html]
 
 Complexity of "Open Addressing"
 https://courses.csail.mit.edu/6.006/fall11/lectures/lecture10.pdf
+https://classes.engr.oregonstate.edu/eecs/summer2022/cs261-001/slides/Lecture20.pdf
 
 https://carmencincotti.com/2022-10-10/linear-probing-open-addressing-hash-tables/

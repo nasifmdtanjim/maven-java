@@ -6,45 +6,25 @@
     }
   },
   "configurations": {
-    // single java file
-    // "Java Launch": {
-    //   // "default": true,
-    //   "adapter": "java-debug-server",
-    //   "configuration": {
-    //     "request": "launch",
-    //     "mainClass": "Hello",
-    //     "sourcePaths": [ "${workspaceRoot}" ],
-    //     "classPaths": [ "${workspaceRoot}" ],
-    //     "args": "",
-    //     "stopOnEntry": true,
-    //     "console": "integratedTerminal",
-    //     "stepFilters": {
-    //       "skipClasses": [ "$$JDK" ]
-    //     }
-    //   },
-    //   "breakpoints": {
-    //     "exception": {
-    //       "caught": "N",
-    //       "uncaught": "N"
-    //     }
-    //   }
-    // },
-
-    // maven project
     "Java Launch": {
       "default": true,
+      "variables": {
+        "MainClass": {
+          "shell": [ "${HOME}/develop/scripts/bash/replace.sh", "${relativeFile}" ]
+        }
+      },
       "adapter": "java-debug-server",
       "configuration": {
         "request": "launch",
-        "mainClass": "org.example.${fileBasenameNoExtension}",
+        "mainClass": "${MainClass}",
         "sourcePaths": [
-            "${workspaceRoot}/src/main/java",
-            "${workspaceRoot}/../maven-java-submodule/main/java"
+          "${workspaceRoot}/src/main/java",
+          "${workspaceRoot}/../maven-java-submodule/main/java"
         ],
         "classPaths": [
-            "${workspaceRoot}/target/classes",
-            "${workspaceRoot}/../maven-java-submodule/target/classes",
-            "/Users/nasif/.m2/repository/com/google/code/gson/gson/2.9.1/gson-2.9.1.jar"
+          "${workspaceRoot}/target/classes",
+          "${workspaceRoot}/../maven-java-submodule/target/classes",
+          "${HOME}/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
         ],
         "args": "",
         "stopOnEntry": true,
@@ -61,9 +41,7 @@
       }
     },
 
-    // java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=5005,suspend=y Hello
     "Java Attach": {
-      // "default": false,
       "adapter": "java-debug-server",
       "configuration": {
         "request": "attach",

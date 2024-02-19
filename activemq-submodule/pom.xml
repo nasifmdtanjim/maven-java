@@ -11,7 +11,7 @@
 
   <parent>
     <groupId>org.example</groupId>
-    <artifactId>maven-java</artifactId>
+    <artifactId>maven-java-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
@@ -26,54 +26,29 @@
   </dependencies>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <configuration>
-            <testFailureIgnore>true</testFailureIgnore>
-          </configuration>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
         <executions>
+          <!-- Run shade goal on package phase -->
           <execution>
-            <id>attach-sources</id>
+            <phase>package</phase>
             <goals>
-              <goal>jar</goal>
+              <goal>shade</goal>
             </goals>
+            <configuration>
+              <transformers>
+                <!-- add Main-Class to manifest file -->
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.example.App</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
           </execution>
         </executions>
       </plugin>
-
-      <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-shade-plugin</artifactId>
-            <version>2.3</version>
-            <executions>
-                <!-- Run shade goal on package phase -->
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>shade</goal>
-                    </goals>
-                    <configuration>
-                        <transformers>
-                            <!-- add Main-Class to manifest file -->
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>org.example.App</mainClass>
-                            </transformer>
-                        </transformers>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
     </plugins>
   </build>
 </project>
